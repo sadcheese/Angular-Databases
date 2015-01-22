@@ -1,0 +1,53 @@
+<!DOCTYPE HTML >
+<html ng-app="App">
+	<head>
+		<title>The network</title>
+
+		<link rel="stylesheet" type="text/css" href="styles/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="styles/styles.css" />
+		<script src="coolJS/angular.min.js"></script>
+
+		<script src="coolJS/angular-route.js"></script>
+		<script src="coolJS/user.js"></script>
+		<script src="coolJS/comments.js"></script>
+
+		<script src="coolJS/app.js"></script>
+		<script src="coolJS/posts.js"></script>
+
+	</head>
+	<body>
+
+		<div id="header">
+			<div id="logo">
+				<img src="images/logo.png" alt="the network"/>
+			</div>
+			<div id="search">
+				<form method="get" action="#">
+					<input type="search" name="terms" placeholder="Search...." ng-model = "name"/>
+
+					<input type="submit" value="go"/>
+				</form>
+			</div>
+		</div>
+	
+		<div id ="page" >
+				<ng-view></ng-view>
+			
+
+			<div id ="loggedIn" ng-controller="userCtrl" >
+				<div ng-repeat="user in users" ng-if="user.id == loggedID">
+					<img id="postPic" src="{{user.pic}}" />
+
+					<h3 id ="mainUser"> {{user.username}}</h3>
+
+				</div>
+
+			</div>
+		</div>
+
+		<div>
+
+		</div>
+
+	</body>
+</html>

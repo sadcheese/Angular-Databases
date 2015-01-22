@@ -1,0 +1,29 @@
+<div id ="updates" ng-controller ="postCtrl" >
+				<div id ="postsBox" ng-repeat = "post in posts">
+
+					<img id ="postPic" src="{{users[post.userId-1].pic}}" />
+					<div id ="postContent">
+						<h3> {{users[post.userId-1].username}}</h3>
+						<p>
+							 {{post.content}}
+						</p>
+					</div>
+					<div ng-controller ="comtCtrl">
+						<div data-ng-repeat="i in [0,1,2] ">
+
+							<div id ="comment" ng-repeat ="comment in comments" ng-if="comment.comments[i].postId == post.id">
+								<img id="commentPic" src="{{users[comment.comments[i].userId - 1].pic}}" />
+								<div id ="commentContent">
+									<h3> {{users[comment.comments[i].userId - 1].username}}</h3>
+									{{comment.comments[i].content}}
+
+								</div>
+							</div>
+						</div>
+						<div id ="comment">
+							<input type="text" id ="input" placeholder="post a comment" />
+
+						</div>
+
+					</div>
+				</div>
